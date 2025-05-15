@@ -42,24 +42,20 @@ public class Pesquisa_Espontanea extends AppCompatActivity {
         btAvancar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Pessoa p = new Pessoa();// Cria uma NOVA instância a cada clique
+                String pesquisaEspontanea = edRespostaEspontanea.getText().toString();
 
-                // 1. Pega o texto digitado (ainda só está no EditText)
-               // String resposta = edRespostaEspontanea.getText().toString().trim();
+                Pessoa pessoa = new Pessoa(pesquisaEspontanea);// Cria uma NOVA instância a cada clique
 
-                p.setRespostaEspontanea(edRespostaEspontanea.getText().toString());//pega o texto digitado
-                listaEleitores.add(p);
-
+                Pessoa.getListaEleitor().add(pessoa); //Addo objeto a listaEleitor da classe pessoa
 
                 //Toast.makeText(Pesquisa_Espontanea.this,pessoa.getRespostaEspontanea(),
                   //      Toast.LENGTH_SHORT).show();
-    Intent intent = new Intent(Pesquisa_Espontanea.this, Pesquisa_Estimulada.class);
-                intent.putExtra("lista_eleitores",listaEleitores);
+                //Intent intent = new Intent(Pesquisa_Espontanea.this, Pesquisa_Estimulada.class);
+                Intent intent = new Intent(Pesquisa_Espontanea.this, Exibir_Totais.class);
                 startActivity(intent);
                 finish();
                 //edRespostaEspontanea.setText(""); // Limpa o campo para o próximo entrevistado
             }
         });
-
     }
 }

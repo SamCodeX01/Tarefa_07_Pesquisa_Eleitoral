@@ -48,11 +48,13 @@ public class Exibir_Totais extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                textView.setText("");
-                for (Pessoa p: listaRecebida) {
-                    //textView.setText(textView.getText().toString() + pessoa.getRespostaEspontanea()+"\n"+ pessoa.getNome() + pessoa.getCelular());
-                    textView.append(p.getRespostaEspontanea());
+                StringBuilder texto = new StringBuilder();
+
+                for (Pessoa p: Pessoa.getListaEleitor()) {
+                    texto.append("Pesquisa Espontânea: ").append(p.getRespostaEspontanea()).append("\n");
                 }
+
+                textView.setText(texto.toString());
 
             }
         });

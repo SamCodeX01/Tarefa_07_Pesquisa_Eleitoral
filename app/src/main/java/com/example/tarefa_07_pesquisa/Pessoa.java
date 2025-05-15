@@ -5,12 +5,11 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 public class Pessoa {
+    //DECLARANDO ATRIBUTOS
     private String respostaEspontanea; //variável de instância da classe
-
     public int respostaEstimulada01;
     public int respostaEstimulada02;
     public int respostaEstimulada03;
-
     public String problemasDaCidade;
 
     //Tela de Cadastro
@@ -20,7 +19,14 @@ public class Pessoa {
     public String data;
     public String hora;
 
-    public Pessoa(){}
+    public static ArrayList<Pessoa> listaEleitor = new ArrayList<>();
+
+
+
+    //CONSTRUTOR
+    public Pessoa(String respostaEspontanea){
+        this.respostaEspontanea = respostaEspontanea;
+    }
 
    /* public Pessoa(EditText edRespostaEspontanea) {
         this.respostaEspontanea = respostaEspontanea;
@@ -35,6 +41,14 @@ public class Pessoa {
         this.hora = hora;
     }
 */
+    //GETTERS E SETTERS
+    public static ArrayList<Pessoa> getListaEleitor() {
+        return listaEleitor;
+    }
+    public static void setListaEleitor(ArrayList<Pessoa> listaEleitor) {
+        Pessoa.listaEleitor = listaEleitor;
+    }
+
     public String getRespostaEspontanea() {
         return respostaEspontanea;
     }
