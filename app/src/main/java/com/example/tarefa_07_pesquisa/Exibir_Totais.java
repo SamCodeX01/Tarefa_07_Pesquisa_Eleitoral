@@ -41,8 +41,6 @@ public class Exibir_Totais extends AppCompatActivity {
         btExibirTotais = findViewById(R.id.btExibirTotais);
         textView = findViewById(R.id.textView);
 
-        // Recebe a lista da Activity anterior (mas ainda não exibe)
-        ArrayList<Pessoa> listaRecebida = (ArrayList<Pessoa>) getIntent().getSerializableExtra("lista_eleitores");
 
         btExibirTotais.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +49,7 @@ public class Exibir_Totais extends AppCompatActivity {
                 StringBuilder texto = new StringBuilder();
 
                 for (Pessoa p: Pessoa.getListaEleitor()) {
-                    texto.append("Pesquisa Espontânea: ").append(p.getRespostaEspontanea()).append("\n");
+                    texto.append("Pesquisa Espontânea: ").append(p.getRespostaEspontanea()).append("\nProblemas da Ciadade: ").append(p.getProblemasDaCidade()).append("\n");
                 }
 
                 textView.setText(texto.toString());

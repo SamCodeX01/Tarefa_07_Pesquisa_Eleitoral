@@ -35,24 +35,18 @@ public class Problemas_da_Cidade extends AppCompatActivity {
 
         btProximo = findViewById(R.id.btProximo);
         edProblema01 = findViewById(R.id.edProblema01);
-        edProblema02 = findViewById(R.id.edProblema02);
-        edProblema03 = findViewById(R.id.edProblema03);
-
 
         btProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String problema1 = edProblema01.getText().toString().trim();
-                //String problema2 = edProblema02.getText().toString().trim();
-                //String problema3 = edProblema03.getText().toString().trim();
+                // Pega o último objeto adicionado (que veio da tela Pesquisa Espontanea)
+                Pessoa pessoa = Pessoa.getListaEleitor().get(Pessoa.getListaEleitor().size()-1);
 
-                //if(!problema1.isEmpty() && !problema2.isEmpty() && !problema3.isEmpty()){
-                  //  String[] problemas = {problema1,problema2,problema3};
+                // Atualiza apenas o nome da tela 2
+                pessoa.setProblemasDaCidade(edProblema01.getText().toString());
 
-                    //Toast.makeText(Problemas_da_Cidade.this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
-                    String resposta1 = getIntent().getStringExtra("Resposta1");
-                    Intent intent = new Intent(Problemas_da_Cidade.this, Cadastrar_Pessoa.class);
-                    intent.putExtra("Resposta1",resposta1);
+                //Toast.makeText(Problemas_da_Cidade.this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Problemas_da_Cidade.this, Exibir_Totais.class);
                     startActivity(intent);
                     finish();
             }

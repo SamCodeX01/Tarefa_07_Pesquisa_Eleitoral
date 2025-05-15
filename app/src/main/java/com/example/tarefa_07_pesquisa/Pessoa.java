@@ -22,10 +22,10 @@ public class Pessoa {
     public static ArrayList<Pessoa> listaEleitor = new ArrayList<>();
 
 
-
     //CONSTRUTOR
-    public Pessoa(String respostaEspontanea){
+    public Pessoa(String respostaEspontanea, String problemasDaCidade){
         this.respostaEspontanea = respostaEspontanea;
+        this.problemasDaCidade = problemasDaCidade;
     }
 
    /* public Pessoa(EditText edRespostaEspontanea) {
